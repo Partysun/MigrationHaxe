@@ -1,21 +1,27 @@
 package;
+
 import org.flixel.FlxG;
 import org.flixel.FlxPoint;
 import org.flixel.FlxSprite;
 
-class Bird extends FlxSprite 
+import enteties.physic.B2FlxSprite;
+
+import box2D.dynamics.B2World;
+
+class Bird extends B2FlxSprite 
 {
-	public function new() 
+	public function new(World:B2World, ?X:Int = 0, ?Y:Int = 0)  
 	{
-		super();
-		velocity.x = 270;
+		super(x, y, 18, 18, World);
+
+	    loadGraphic("assets/png/bird.png");
+
+		//velocity.x = 270;
 	}
 
 	override public function update():Void 
 	{
 		var control:String = "keyboard";
-		
-	    loadGraphic("assets/png/bird.png");
 		
 		//velocity.x = 0;
 		//velocity.y = 0;
