@@ -1,16 +1,12 @@
 package enteties.physic;
 
-//import org.flixel.*;
-
 import enteties.physic.PhysObject;
 
 import box2D.dynamics.B2World;
-//import box2D.collision.*;
-//import box2D.collision.shapes.*;
 import box2D.common.math.B2Vec2;
 
 /**
- * @author Yura - 23.08.2011 16:49
+ * @author Yura -
  */
 class B2FlxSprite extends PhysObject
 {
@@ -27,13 +23,13 @@ class B2FlxSprite extends PhysObject
     {
         super.update();
         
-        if (_body.getPosition().x>40)
+        if (_body.getPosition().x > 40)
         {
             _body.setPosition(new B2Vec2(0, _body.getPosition().y));
             countCycle++;					
         }
         
-        x = (_body.getPosition().x * ratio) - width / 2 + countCycle*1200;
-        y = (_body.getPosition().y * ratio) - height / 2;
+        x = (_body.getPosition().x * GameManager.RATIO) - width / 2 + countCycle * 960;
+        y = (_body.getPosition().y * GameManager.RATIO) - height / 2;
     }	
 }	

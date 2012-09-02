@@ -33,7 +33,7 @@ class PhysObject extends FlxSprite
     // Мир в котором существует физический объект
     private var _world:B2World; 
     // Warning: ratio from GameManager
-    private var ratio:Int = 30;//GameManager.RATIO;
+    //private var ratio:Int = 30;//GameManager.RATIO;
     
     public function new(X:Float, Y:Float, Width:Float, Height:Float, World:B2World) 
     {
@@ -60,10 +60,10 @@ class PhysObject extends FlxSprite
         _fixDef.density = _density;
         _fixDef.restitution = _restitution;
         _fixDef.friction = _friction;                                   
-        _fixDef.shape = new B2CircleShape(width/2/ratio);
+        _fixDef.shape = new B2CircleShape(width/2/GameManager.RATIO);
 
         _bodyDef = new B2BodyDef();
-        _bodyDef.position.set((x + (width/2)) / ratio, (y + (height/2)) / ratio);
+        _bodyDef.position.set((x + (width/2)) / GameManager.RATIO, (y + (height/2)) / GameManager.RATIO);
         _bodyDef.angle = _angle * (Math.PI / 180);	
         _bodyDef.type = _type;		
         _bodyDef.angularDamping = 5;

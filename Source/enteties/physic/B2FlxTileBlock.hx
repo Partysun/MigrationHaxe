@@ -18,8 +18,6 @@ class B2FlxTileBlock extends FlxSprite
 {
     //[Embed(source = '../../../../../data/auto_tile.png')] private const AutoTileImg:Class;
     
-    private var ratio:Float = 30;
-
     public var _fixDef:B2FixtureDef;
     public var _bodyDef:B2BodyDef;
     public var _obj:B2Body;
@@ -37,17 +35,22 @@ class B2FlxTileBlock extends FlxSprite
     //Default body type
     public var _type:Int = 0;//B2Body.B2_staticBody;
 
+    private var _width:Int = 10;
+    private var _height:Int = 10;
+
     public function new(X:Int , Y:Int ,Width:Int, Height:Int , w:B2World) 
     {
         super(X, Y);//, AutoTileImg);   
          _world = w;
+         _width = Width;
+         _height = Height;
         create();
     }
     
     private function create():Void 
     {	
         var boxShape:B2PolygonShape = new B2PolygonShape();
-        boxShape.setAsBox((width/2) / ratio, (height/2) /ratio);            
+        boxShape.setAsBox((_width/2) / GameManager.RATIO, (_height/2) / GameManager.RATIO);            
      
         _fixDef = new B2FixtureDef();
         _fixDef.density = _density;
@@ -56,7 +59,7 @@ class B2FlxTileBlock extends FlxSprite
         _fixDef.shape = boxShape;
      
         _bodyDef = new B2BodyDef();
-        _bodyDef.position.set((x + (width/2)) / ratio, (y + (height/2)) / ratio);
+        _bodyDef.position.set((x + (_width/2)) / GameManager.RATIO, (y + (_height/2)) / GameManager.RATIO);
         _bodyDef.angle = _angle * (Math.PI / 180);
         _bodyDef.type = _type;			
 

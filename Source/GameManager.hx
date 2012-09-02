@@ -22,7 +22,7 @@ class GameManager
     public static var FAILED:Int = 3;
     public static var END:Int = 4;
     
-    public static var RATIO:Int = 30;		
+    public static var RATIO:Int = 24;		
     
     public static var gameCondition:Int = STOPED;
     //public static var player:Plane;	

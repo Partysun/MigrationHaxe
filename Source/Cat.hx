@@ -7,8 +7,10 @@ class Cat extends FlxSprite
 	{
 		super(x, y);
 		loadGraphic("assets/png/cat.png", true, true, 48, 29);
-		velocity.x = -200;
+		velocity.x = 20;
 		addAnimation("fly", [0, 1, 2, 3, 4, 5], 6);
+        acceleration.y = 1200;
+        acceleration.x = 1;
 	}
 	
 	override public function update():Void 
