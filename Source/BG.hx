@@ -1,4 +1,5 @@
 package;
+
 import org.flixel.FlxG;
 import org.flixel.FlxPoint;
 import org.flixel.FlxSprite;
@@ -13,9 +14,10 @@ class BG extends FlxSprite
 	override public function update():Void 
 	{
 		super.update();
+
         var _point:FlxPoint = this.getScreenXY();
         if (_point.x + this.width < 0) {
-            x += width*2;
+            x += FlxG.camera.width*2;
         }
 	}
 }
