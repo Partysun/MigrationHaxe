@@ -1,13 +1,11 @@
 package;  
 
-//import enteties.Plane;
 import org.flixel.FlxSound;
 import org.flixel.FlxSprite;
 import org.flixel.FlxState;
 import org.flixel.FlxGroup;
 import org.flixel.FlxCamera;
 import org.flixel.FlxG;	
-import box2D.dynamics.B2World;
 
 /**
  * Класс глобальной видимости из любой точки проекта.
@@ -25,14 +23,16 @@ class GameManager
     public static var RATIO:Int = 24;		
     
     public static var gameCondition:Int = STOPED;
-    //public static var player:Plane;	
+    public static var player:Bird;	
     public static var countTime: Int;		
     private static var _volume:Float = 0.5;
     private static var _musicVolume:Float = 0.6;
-    public static var world:B2World;
 
     public static var levelWidth:Int = 480;
     public static var levelHeight:Int = 320; 
+
+    public static var landManager:LandObjectManager; 
+    private static var lastLandObj:Float = 0;
     
     public function GameManager() 
     {						
@@ -42,6 +42,24 @@ class GameManager
     {			
         // Устанавливаем игровое состояние в начальное
         GameManager.gameCondition = GameManager.STOPED;
+        //Создаем Менеджер объектов фона
+        GameManager.landManager = new LandObjectManager();
+        createLandObjects();
+    }
+
+    static public function createLandObjects():Void {
+        for (i in 0...GameManager.landManager.countDead())
+        {
+          reviveLandObject();
+        }
+    }
+
+    static public function reviveLandObject():Void {
+          var temp:LandObject = cast(GameManager.landManager.getFirstDead(), LandObject);
+          temp.x = GameManager.lastLandObj + Math.random() * 25 + 2;
+          temp.y = FlxG.height - 22 - temp.height;
+          GameManager.lastLandObj = temp.x + temp.width;
+          temp.revive();
     }
     
     /**
@@ -49,6 +67,6 @@ class GameManager
      */
     static public function clear():Void
     {
-        //player = null;		
+        player = null;		
     }
 }

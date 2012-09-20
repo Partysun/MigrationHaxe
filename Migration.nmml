@@ -23,7 +23,7 @@
 	
 	<assets path="Assets" rename="assets" >
 		<sound path="data/beep.mp3" id="Beep" />
-		<music path="mp3/NyanCat.mp3" id="NyanCat" />
+		<music path="mp3/theme.mp3" id="Theme" />
 	</assets>
 	
 	<assets path="assets/data" include="*.ttf" type="font" />
