@@ -27,7 +27,7 @@ class Bird extends FlxSprite
         acceleration.x = 20;
                 
         maxVelocity.x = 600;
-        maxVelocity.y = 220;
+        maxVelocity.y = 320;
 
         elasticity = 0.0;
         jump = 0;
@@ -86,11 +86,11 @@ class Bird extends FlxSprite
         if (FlxG.keys.justReleased("X"))
         {
             if (lassitude > 2.80)
-                velocity.y = 0;
-            else if (lassitude > 2.25)
-                velocity.y = maxVelocity.y*0.25;  
-            else
-                velocity.y = maxVelocity.y*0.45;  
+                velocity.y = maxVelocity.y*0.5;
+            //else if (lassitude > 2.25)
+                //velocity.y = maxVelocity.y*0.25;  
+            //else
+                //velocity.y = maxVelocity.y*0.45;  
         }
 
         if (y < 10)
@@ -100,8 +100,8 @@ class Bird extends FlxSprite
             FlxG.shake(0.01);
             stunning = maxStunning;
         }
-        FlxG.watch(this, "lassitude", "lassitude");
-        FlxG.watch(this, "jump", "jump");
+        //FlxG.watch(this, "lassitude", "lassitude");
+        //FlxG.watch(this, "jump", "jump");
 		super.update();
 	}
 }

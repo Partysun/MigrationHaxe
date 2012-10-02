@@ -78,7 +78,7 @@ class PlayState extends FlxState
         // variable to handle the speed offset:it's the ratio between
         // the real enemy speed and the minimum allowed speed
         var speed_offset:Float;
-					
+		//FlxG.camera.target.x = _bird.x - FlxG.width*0.5;
         //Выпускаем новый объект обстановки
         if (GameManager.landManager.countDead() > 0)
         {
@@ -96,9 +96,9 @@ class PlayState extends FlxState
 			FlxG.switchState(new PlayState());
 		}
 
-        //FlxG.watch(_bird, "x", "x:");
-        //FlxG.watch(_bird.acceleration, "x", "acceleration");
-        //FlxG.watch(_bird.velocity, "x", "velocity");
+        FlxG.watch(_bird, "x", "x:");
+        FlxG.watch(_bird.acceleration, "x", "acceleration");
+        FlxG.watch(_bird.velocity, "x", "velocity");
 
         super.update();
 	}
