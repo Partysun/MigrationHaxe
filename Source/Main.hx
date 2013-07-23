@@ -1,7 +1,7 @@
 ﻿package;
 
-import nme.display.Sprite;
-import nme.Lib;
+import flash.display.Sprite;
+import flash.Lib;
 
 /**
  * @author Partysun - yura.zatsepin@gmail.com

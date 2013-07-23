@@ -3,8 +3,10 @@
 	
 	<app title="Migration" file="Migration" main="Main" version="0.0.2" company="Yura Zatsepin" />
 	
-	<window width="480" height="320" fps="30" background="0x000000" orientation="portrait" resizable="true" if="target_flash" />
-	<window width="480" height="320" fps="30" background="0x000000" orientation="landscape" hardware="true" unless="target_flash" />
+	<!--<window width="480" height="320" fps="30" background="0x000000" orientation="portrait" resizable="true" if="target_flash" />-->
+	<!--<window width="480" height="320" fps="30" background="0x000000" orientation="landscape" hardware="true" unless="target_flash" />-->
+	<window width="480" height="320" fps="30" orientation="portrait" resizable="true" if="web" />
+	<window width="480" height="320" fps="30" orientation="landscape" fullscreen="false" hardware="true" vsync="true" unless="web" />
  	
 	<set name="BUILD_DIR" value="Export" />
 	
@@ -17,7 +19,7 @@
 	<classpath name="Source" />
 	<classpath name="enteties" />
 	
-	<haxelib name="nme" />
+	<haxelib name="openfl" />
 	<haxelib name="flixel" />
 	<haxelib name="box2d" />
 	
@@ -38,9 +40,9 @@
 	
 	<icon name="Assets/HaxeFlixel.svg" />
 	
-	<ndll name="std" />
-	<ndll name="regexp" />
-	<ndll name="zlib" />
-	<ndll name="nme" haxelib="nme" />
+	<!--<ndll name="std" />-->
+	<!--<ndll name="regexp" />-->
+	<!--<ndll name="zlib" />-->
+	<!--<ndll name="openfl" haxelib="openfl" />-->
 	
 </project>

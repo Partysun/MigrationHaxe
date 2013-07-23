@@ -19,6 +19,6 @@ class Migration extends FlxGame
 		FlxG.bgColor = {rgb: 0x808080, a: 0x00};
 		#end
 
-        forceDebugger = true;
+        //forceDebugger = true;
 	}
 }
